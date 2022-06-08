@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đăng Ký"
+        android:textStyle="bold"
+        android:textColor="#871111"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:layout_marginTop="30sp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textColor="@color/black"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:textSize="15dp"/>
+    <EditText
+        android:id="@+id/edt_Email_regester"
+        android:inputType="textEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mật Khẩu"
+        android:textColor="@color/black"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:textSize="15dp"/>
+    <EditText
+        android:id="@+id/edt_password_regester"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nhập Lại Mật Khẩu"
+        android:textColor="@color/black"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:textSize="15dp"/>
+    <EditText
+        android:id="@+id/edt_password_regester_again"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/bt_regester"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="đăng ký"
+        android:background="@drawable/custom_btn"
+        app:backgroundTint="@color/color_main"
+        android:layout_marginTop="60dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bạn đã có tài khoản?"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/go_To_Login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quay lại đăng nhập"
+            android:textColor="@color/color_main"/>
+    </LinearLayout>
+
+
+</LinearLayout>

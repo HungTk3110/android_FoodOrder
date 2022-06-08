@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đăng Nhập"
+        android:textStyle="bold"
+        android:textColor="@color/color_main"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:layout_marginTop="30sp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textColor="@color/black"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:textSize="15dp"/>
+    <EditText
+        android:id="@+id/edt_Email_login"
+        android:inputType="textEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mật Khẩu"
+        android:textColor="@color/black"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:textSize="15dp"/>
+    <EditText
+        android:id="@+id/edt_password_login"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="đăng nhập"
+        android:background="@drawable/custom_btn"
+        app:backgroundTint="@color/color_main"
+        android:layout_marginTop="60dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/tv_forgot_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quên Mật Khẩu?"
+            android:textColor="@color/color_main"
+            android:textStyle="bold"
+            android:layout_weight="5"
+            />
+        <TextView
+            android:id="@+id/tv_Regester"
+            android:layout_weight="5"
+            android:gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đăng Ký"
+            android:textColor="@color/color_main"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+</LinearLayout>

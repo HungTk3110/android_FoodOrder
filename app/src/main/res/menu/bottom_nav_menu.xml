@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Trang Chủ"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:id="@+id/nav_home"/>
+    <item android:title="Đơn Hàng"
+        android:icon="@drawable/ic_baseline_receipt_long_24"
+        android:id="@+id/nav_receipt"/>
+    <item android:title="Tôi"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:id="@+id/nav_profile"/>
+</menu>
