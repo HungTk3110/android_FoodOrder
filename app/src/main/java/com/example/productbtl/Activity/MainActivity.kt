@@ -60,39 +60,38 @@ import com.example.productbtl.Adapter.product_Adapter
 import com.example.productbtl.Adapter.receipt_Adapter
 import com.example.productbtl.Adapter.detail_Adapter
 import com.example.productbtl.Object.*
+import com.example.productbtl.databinding.ActivityMainBinding
 import java.text.NumberFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    var bottomNavigationView: BottomNavigationView? = null
+    private lateinit var binding: ActivityMainBinding
     private val homeFragment = HomeFragment()
     private val receiptFragment = ReceiptFragment()
     private val profileFragment = ProfileFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_main)
-        bottomNavigationView = findViewById(R.id.bottomNavigationView)
         supportFragmentManager.beginTransaction().replace(R.id.frame_layout, homeFragment).commit()
-        bottomNavigationView.setOnItemSelectedListener(NavigationBarView.OnItemSelectedListener { item ->
-            when (item.itemId) {
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when (it.itemId) {
                 R.id.nav_home -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.frame_layout, homeFragment).commit()
-                    return@OnItemSelectedListener true
+                        .replace((R.id.frame_layout), homeFragment).commit()
                 }
                 R.id.nav_receipt -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frame_layout, receiptFragment).commit()
-                    return@OnItemSelectedListener true
                 }
                 R.id.nav_profile -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frame_layout, profileFragment).commit()
-                    return@OnItemSelectedListener true
                 }
             }
-            false
-        })
+            true
+        }
     }
 
     fun goToProductFragment(menu: menu?) {
@@ -117,7 +116,7 @@ class MainActivity : AppCompatActivity() {
     fun sumPrice(list: List<cart>): String {
         var sum: Long = 0
         for (i in list.indices) {
-            sum += list[i].price
+            sum += list[i].price!!
         }
         return formatNumber(sum)
     }
@@ -140,7 +139,7 @@ class MainActivity : AppCompatActivity() {
     fun goToReceiptFragment() {
         supportFragmentManager.beginTransaction().replace(R.id.frame_layout, receiptFragment)
             .commit()
-        bottomNavigationView!!.selectedItemId = R.id.nav_receipt
+        binding.bottomNavigationView!!.selectedItemId = R.id.nav_receipt
     }
 
     companion object {
@@ -148,8 +147,8 @@ class MainActivity : AppCompatActivity() {
         fun ckeckAddToCart(cart: cart): Boolean {
             for (i in listCart.indices) {
                 if (listCart[i].name == cart.name) {
-                    val temp = listCart[i].price / listCart[i].amount.toLong()
-                    listCart[i].price = listCart[i].price + temp
+                    val temp = listCart[i].price!! / listCart[i].amount.toLong()
+                    listCart[i].price = listCart[i].price!! + temp
                     val amount = listCart[i].amount.toInt() + 1
                     listCart[i].amount = amount.toString()
                     return true
@@ -178,13 +177,13 @@ class MainActivity : AppCompatActivity() {
 
         fun addAmount(cart: cart, price: Long) {
             cart.amount = (cart.amount.toInt() + 1).toString()
-            cart.price = price + cart.price
+            cart.price = price + cart.price!!
         }
 
         fun ruleAmount(cart: cart, price: Long) {
             cart.amount = (cart.amount.toInt() - 1).toString()
             removeToListCart()
-            cart.price = cart.price - price
+            cart.price = cart.price!! - price
         }
     }
 }

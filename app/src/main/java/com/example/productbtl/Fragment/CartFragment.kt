@@ -63,31 +63,23 @@ import com.google.firebase.database.DatabaseError
 import com.example.productbtl.Adapter.product_Adapter
 import com.example.productbtl.Adapter.receipt_Adapter
 import com.example.productbtl.Adapter.detail_Adapter
+import com.example.productbtl.databinding.ActivityMainBinding
+import com.example.productbtl.databinding.FragmentCartBinding
 
 class CartFragment : Fragment() {
     private var rcvCart: RecyclerView? = null
     private var mainActivity: MainActivity? = null
-    private var tv_sumPrice: TextView? = null
-    private var tv_price: TextView? = null
-    private var tv_amount: TextView? = null
-    private var tv_clear_cart: TextView? = null
-    private var imageView_back: ImageView? = null
-    private var goTo_Detail: LinearLayout? = null
+    private lateinit var binding: FragmentCartBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        binding = FragmentCartBinding.inflate(layoutInflater)
         val view = inflater.inflate(R.layout.fragment_cart, container, false)
         mainActivity = activity as MainActivity?
         rcvCart = view.findViewById(R.id.RecycView_cart)
-        tv_price = view.findViewById(R.id.tv_price_cart)
-        tv_amount = view.findViewById(R.id.tv_amount_cart)
-        imageView_back = view.findViewById(R.id.back)
-        tv_clear_cart = view.findViewById(R.id.clear_cart)
-        goTo_Detail = view.findViewById(R.id.goTo_Detail)
-        val linearLayoutManager = LinearLayoutManager(mainActivity)
-        rcvCart.setLayoutManager(linearLayoutManager)
+        binding.RecycViewCart.setLayoutManager(LinearLayoutManager)
         val cart_adapter =
             cart_Adapter(MainActivity.Companion.getListCart(), object : imageClickListenner {
                 override fun onImageClickAdd(cart: cart?) {
@@ -110,6 +102,6 @@ class CartFragment : Fragment() {
             tv_sumPrice.setText("0đ")
         })
         goTo_Detail.setOnClickListener(View.OnClickListener { mainActivity!!.goToDetailFragment() })
-        return view
+        return binding.root
     }
 }
